@@ -1,5 +1,6 @@
 import './Restaurant.css';
 import Table from '../Table/Table';
+import '../Guest/Guest.css'
 
 const Restaurant = ({ steak, vegan }) => {
 
@@ -38,8 +39,24 @@ const Restaurant = ({ steak, vegan }) => {
         return merge(remote, office);
     }
 
+    const createTable2 = (group) => {
+        let tableCount = denomination(group.office, group.remote);
+        let remote = group.remote.slice(group.remote.length / -tableCount);
+        let office = group.office.slice(group.office.length / -tableCount);
+        const merge = (first, second) => {
+            for (let i = 0; i < second.length; i++) {
+                first.push(second[i]);
+            }
+            return first;
+        }
+
+        return merge(remote, office);
+    }
+
     const guestsBatch1 = createTable(steak);
     const guestsBatch2 = createTable(vegan);
+    const guestsBatch3 = createTable2(steak);
+    const guestsBatch4 = createTable2(vegan);
 
     // const arr1 = steak.office.slice(steak.office.length / steakTableCount);
     // const arr2 = steak.remote.slice(steak.remote.length / steakTableCount);
@@ -66,7 +83,7 @@ const Restaurant = ({ steak, vegan }) => {
                     {guestsBatch1.map(guest => {
                         return (
                             <div className="guest">
-                                <p>{guest.first_name}</p>
+                                <p>{guest.first_name} {guest.last_name}</p>
                             </div>
                         )
                     })
@@ -77,7 +94,29 @@ const Restaurant = ({ steak, vegan }) => {
                     {guestsBatch2.map(guest => {
                         return (
                             <div className="guest">
-                                <p>{guest.first_name}</p>
+                                <p>{guest.first_name} {guest.last_name}</p>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+                <div className="table">
+                    <p>Steak</p>
+                    {guestsBatch3.map(guest => {
+                        return (
+                            <div className="guest">
+                                <p>{guest.first_name} {guest.last_name}</p>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
+                <div className="table">
+                    <p>Vegan</p>
+                    {guestsBatch4.map(guest => {
+                        return (
+                            <div className="guest">
+                                <p>{guest.first_name} {guest.last_name}</p>
                             </div>
                         )
                     })

@@ -41,8 +41,9 @@ const Restaurant = ({ steak, vegan }) => {
 
     const createTable2 = (group) => {
         let tableCount = denomination(group.office, group.remote);
-        let remote = group.remote.slice(group.remote.length / -tableCount);
-        let office = group.office.slice(group.office.length / -tableCount);
+        const middleIndex = Math.ceil(group.length / 2);
+        let remote = group.remote.slice().splice(-middleIndex);
+        let office = group.office.slice().splice(-middleIndex);
         const merge = (first, second) => {
             for (let i = 0; i < second.length; i++) {
                 first.push(second[i]);

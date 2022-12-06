@@ -1,13 +1,17 @@
 import jack from './static/images/png-transparent-jack-skellington-santa-claus-the-nightmare-before-christmas-the-pumpkin-king-drawing-puss-in-boots-holidays-cartoon-fictional-character-removebg-preview.png'
 import './App.css';
+
 // import teamsCSV from "./data/data.csv";
-import { data } from "./data/data";
+import { useState } from 'react'
+import { guests } from "./data/data";
+
 import DataTransformation from './static/transformer';
 import Restaurant from './components/Restaurant/Restaurant';
 
 function App() {
 
-  const transform = DataTransformation(data);
+  const transformer = DataTransformation(guests)
+  const [data, setData] = useState(transformer)
 
   return (
     <div className="App">
@@ -16,7 +20,7 @@ function App() {
         <p>
           Steve's Nightmare Before Christmas
         </p>
-        <Restaurant></Restaurant>
+        <Restaurant steak={data.steak} vegan={data.vegan}></Restaurant>
       </header>
     </div>
   );

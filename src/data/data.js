@@ -1,4 +1,4 @@
-export const data = [
+export const guests = [
   {
     "id": 1,
     "first_name": "Karlene",

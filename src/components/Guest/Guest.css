@@ -1,13 +1,33 @@
+.guests {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
 .guest {
     border: 2px solid white;
     border-radius: 50%;
     height: 100px;
     width: 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.guest.gold {
+    background-color: #E6BE8A;
+}
+
+.guest.silver {
+    background-color: silver;
 }
 
 .guest p {
+    color: #401C4A;
     font-size: 12px;
+    margin: 0;
 }

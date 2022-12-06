@@ -18,7 +18,10 @@ function App() {
       <header className="App-header">
         <img src={jack} className="App-logo" alt="logo" />
         <p>
-          Steve's Nightmare Before Christmas
+          Steve's Nightmare Before Christmas (this is Steve ↖️)
+        </p>
+        <p>
+          (Steve's nightmare sorted ⬇️)
         </p>
         <Restaurant steak={data.steak} vegan={data.vegan}></Restaurant>
       </header>

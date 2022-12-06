@@ -1,7 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+// import teamsCSV from "./data/data.csv";
+import { data } from "./data/data";
+import DataTransformation from './static/transformer'
 
 function App() {
+
+  const transform = DataTransformation(data);
+
+
+
+
   return (
     <div className="App">
       <header className="App-header">

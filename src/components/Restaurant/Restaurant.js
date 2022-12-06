@@ -24,18 +24,37 @@ const Restaurant = ({ steak, vegan }) => {
     const steakTableCount = denomination(steak.office, steak.remote)
     const veganTableCount = denomination(vegan.office, vegan.remote)
 
-    // const arr = steak.office.slice(steak.office.length / steakTableCount)
 
+    const arr1 = steak.office.slice(steak.office.length / steakTableCount);
+    const arr2 = steak.remote.slice(steak.remote.length / steakTableCount);
+    
+    const merge = (first, second) => {
+        for (let i = 0; i < second.length; i++) {
+            first.push(second[i]);
+        }
+        return first;
+    }
 
-    // console.log(arr);
+    const guests = merge(arr1, arr2);
 
-
+    console.log(arr1);
+    console.log(arr2);
+    console.log(merge(arr1, arr2));
 
     return (
         <>
             <div className="restaurant">
-                <Table foodPreference="Vegan"></Table>
-                <Table foodPreference="Steak"></Table>
+                <div className="table">
+                    <p>Steak</p>
+                    {guests.map(guest => {
+                        return (
+                            <div className="guest">
+                                <p>{guest.first_name}</p>
+                            </div>
+                        )
+                    })
+                    }
+                </div>
             </div>
         </>
     )
